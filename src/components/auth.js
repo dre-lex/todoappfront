@@ -11,7 +11,7 @@ function Auth() {
   const [confirmPassword, setConfirmPassword] = useState(null)
   const [error, setError] = useState(null)
 
-  console.log(cookies);
+  // console.log(cookies);
   
 
   function viewLoggedIn(status) {
@@ -26,7 +26,7 @@ function Auth() {
       return
     }
 
-    const response = await fetch(`http://localhost:8000/${endpoint}`, {
+    const response = await fetch(`https://dpa-todoapp.herokuapp.com/${endpoint}`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email, password})

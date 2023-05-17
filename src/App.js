@@ -14,7 +14,7 @@ function App() {
 
   async function getData() {
     try {
-      const response = await fetch(`http://localhost:8000/todos/${userEmail}`);
+      const response = await fetch(`https://dpa-todoapp.herokuapp.com/todos/${userEmail}`);
       const json = await response.json()
       
       setTasks(json)
@@ -26,9 +26,10 @@ function App() {
 
   useEffect(() => {
     if (authToken) {
+      
       getData()
-    } 
-  })
+    }
+  }, [])
   console.log(tasks);
 
   const sortedByTasks = tasks?.sort((a, b) => a.title - b.title)

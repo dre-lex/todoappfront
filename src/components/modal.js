@@ -16,7 +16,7 @@ function Modal({mode, setShowModal, getData, task}) {
   async function newPost(e) {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8000/todos', {
+      const response = await fetch('https://dpa-todoapp.herokuapp.com/todos', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
@@ -34,7 +34,7 @@ function Modal({mode, setShowModal, getData, task}) {
   async function editPost(e) {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
+      const response = await fetch(`https://dpa-todoapp.herokuapp.com/todos/${task.id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
@@ -78,17 +78,6 @@ function Modal({mode, setShowModal, getData, task}) {
             onChange={handleChange}
           />
 
-          {/* <label for="range">Drag for progress</label>
-          <input
-            required
-            type="range"
-            id="range"
-            min="0"
-            max="100"
-            name="progress"
-            value={data.progress}
-            onChange={handleChange}
-          /> */}
           
           <input className="{method}" type="submit" onClick={editMode ? editPost : newPost}/>
         </form>

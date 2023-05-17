@@ -8,7 +8,7 @@ function ListTasks({getData, task}) {
 
   async function deleteTask() {
     try {
-      const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
+      const response = await fetch(`https://dpa-todoapp.herokuapp.com/todos/${task.id}`, {
         method: "DELETE",
       })
       if (response.status === 200) {
